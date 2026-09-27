@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "canonical_source": "skills/<name>/SKILL.md",
+  "tiers": {
+    "policy": "Two tiers, no deletions. 'routing' skills are listed to Claude with their full description and may be invoked automatically. Every other skill is 'catalog' tier: it carries disable-model-invocation:true, so it costs no context, but stays installed, stays runnable as /claude-foundation:<name>, and stays discoverable via the generated skills/skill-index/CATALOG.md. Move a skill between tiers by editing the routing list below, then run: python3 scripts/generate_skill_index.py --apply. This is orthogonal to native Claude Code skill invocation: disable-model-invocation:true only controls whether Claude Code itself may resident-list or model-invoke a skill. It does not govern our own custom skill-bank-router/skill-index catalog-discovery mechanism, which is a separate routing_disposition axis (see manual_only below) deciding whether the router may load/apply a catalog-tier skill's guidance automatically from a matched prompt, versus requiring explicit user invocation.",
+    "enforced_by": "scripts/generate_skill_index.py --check",
+    "manual_only_policy": "routing_disposition default: every catalog-tier skill (any active skill not in tiers.routing) is CATALOG_AUTO by default -- skill-bank-router/skill-index may discover it via CATALOG.md and load/apply its SKILL.md as router-selected guidance for a matching prompt, without native Claude Code auto-invocation (still gated by disable-model-invocation:true). List a skill in tiers.manual_only to mark it MANUAL_ONLY: skill-bank-router/skill-index must NOT auto-apply it -- they must tell the user the explicit action/invocation required instead. Reserve MANUAL_ONLY for destructive, shared-state, production, release, deployment, secret-rotation, or other irreversible/high-blast-radius workflows. A skill cannot be both tiers.routing and tiers.manual_only (a routing-tier skill is already natively resident and auto-invocable, so 'manual only' would contradict its own tier) -- enforced by scripts/check_manifest_consistency.py --check.",
+    "manual_only": [],
+    "routing": [
+      "agent-hook-guardrails",
+      "agent-result-contract",
+      "ai-agent-tool-safety-review",
+      "ai-usage",
+      "ansible-playbook-review",
+      "ansible-role-review",
+      "ci-cd-pipeline-builder",
+      "claude-code-settings-hardening",
+      "claude-plugin-adoption",
+      "claude-plugin-authoring",
+      "codebase-onboarding",
+      "container-image-hardening",
+      "container-runtime-diagnostics",
+      "context-budget-audit",
+      "docker-patterns",
+      "documentation-lookup",
+      "gitlab-ci-security-gates-review",
+      "imx-containerization-guardrails",
+      "imx-enterprise-app-runtime-review",
+      "imx-ops-readonly-diagnostic",
+      "imx-ops-runbook",
+      "imx-runtime-log-triage",
+      "interaction-intake-contract",
+      "oci-evidence-collector",
+      "oci-networking-diagnostics",
+      "oci-operations-review",
+      "oci-security-evidence-review",
+      "prompt-governance",
+      "prompt-quality",
+      "repo-review",
+      "rhel-oracle-linux-ops-review",
+      "search-first",
+      "security-review",
+      "security-scan",
+      "skill-bank-router",
+      "terraform-plan-safety-review",
+      "terraform-state-backend-review",
+      "verification-loop"
+    ]
+  },
+  "replacements": {
+    "imx-containerization-safety-review": {
+      "replacement": "imx-containerization-guardrails",
+      "status": "compatibility-shim",
+      "reason": "Deprecated compatibility shim retained for legacy routing; replacement skill contains the active iMX containerization guardrails."
+    },
+    "imx-ops-readonly-diagnostics": {
+      "replacement": "imx-ops-readonly-diagnostic",
+      "status": "compatibility-shim",
+      "reason": "Deprecated compatibility shim retained for legacy routing; replacement skill contains the active readonly iMX operational diagnostic workflow."
+    },
+    "oci-cli-evidence-collection": {
+      "replacement": "oci-evidence-collector",
+      "status": "compatibility-shim",
+      "reason": "Deprecated compatibility shim retained for legacy routing; replacement skill contains the active readonly OCI evidence collection workflow."
+    }
+  },
+  "intentional_overlaps": [],
+  "skill_overrides": {}
+}
