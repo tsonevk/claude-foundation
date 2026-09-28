@@ -1,0 +1,13 @@
+{
+  "name": "ktsonev-private",
+  "owner": {
+    "name": "ktsonev"
+  },
+  "plugins": [
+    {
+      "name": "claude-foundation",
+      "source": "./plugins/claude-foundation",
+      "description": "Private Claude engineering foundation: 168 skills, 10 domain agents, 6 slash commands."
+    }
+  ]
+}
