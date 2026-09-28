@@ -1,13 +1,16 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "ktsonev-private",
+  "description": "Personal Claude Foundation marketplace for Claude Code, Desktop, and Cowork.",
   "owner": {
     "name": "ktsonev"
   },
   "plugins": [
     {
       "name": "claude-foundation",
-      "source": "./plugins/claude-foundation",
-      "description": "Private Claude engineering foundation: 168 skills, 10 domain agents, 6 slash commands."
+      "displayName": "Claude Foundation",
+      "description": "Private Claude engineering foundation: 168 skills, 10 domain agents, 6 slash commands.",
+      "source": "./plugins/claude-foundation"
     }
   ]
 }
