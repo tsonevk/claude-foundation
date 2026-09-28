@@ -3,6 +3,6 @@
   "displayName": "Claude Foundation",
   "version": "1.5.10",
   "description": "Claude Code native skill library: 168 skills, 10 domain agents, 6 slash commands. Covers DevOps/IaC/OCI/Linux/iMX/Kubernetes/Ansible/Terraform reviews, CI/CD diagnostics, release safety, security guardrails, safe-change workflows, context efficiency, repository health, bounded agent runtime/tool safety, and Claude plugin adoption reviews.",
-  "author": {"name": "ktsonev"},
+  "author": {"name": "ktsonev", "email": "ktsonev@codix.eu"},
   "keywords": ["devops","security-review","iac","oci","kubernetes","ansible","imx","linux","ci-cd","release-safety","verification","agentic-loops","claude-plugins"]
 }
