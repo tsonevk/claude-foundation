@@ -1,14 +1,13 @@
 {
-  "name": "ktsonev-local",
+  "name": "ktsonev-private",
   "owner": {
-    "name": "ktsonev",
-    "email": "ktsonev@codix.eu"
+    "name": "ktsonev"
   },
   "plugins": [
     {
       "name": "claude-foundation",
       "source": "./plugins/claude-foundation",
-      "description": "Claude Code native skill library: 165 skills, 10 domain agents, 4 slash commands."
+      "description": "Private Claude engineering foundation: 168 skills, 10 domain agents, 6 slash commands."
     }
   ]
 }
