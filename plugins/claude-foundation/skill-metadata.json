@@ -23,6 +23,7 @@
       "context-budget-audit",
       "docker-patterns",
       "documentation-lookup",
+      "engineering-reasoning-boundary",
       "gitlab-ci-security-gates-review",
       "imx-containerization-guardrails",
       "imx-enterprise-app-runtime-review",
