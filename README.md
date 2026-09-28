@@ -131,14 +131,15 @@ Keep **Publish to org** off.
 
 ## Validation
 
-Run the repository checks after plugin changes:
+Run the standalone repository validation after plugin or marketplace changes:
 
 ```bash
-python3 scripts/check_description_collisions.py --top 25
-python3 scripts/check_manifest_consistency.py --check
-python3 scripts/check_related_refs.py
-python3 scripts/generate_skill_index.py --check
+python3 scripts/validate_repository.py
 ```
+
+This verifies the marketplace-to-plugin path, plugin identity, installed skill/agent/command inventory, and that local runtime/private-state paths were not committed.
+
+Deeper skill-routing and catalog checks remain part of the local Claude Code maintenance workflow until they are adapted for this standalone repository.
 
 ## Migration status
 
