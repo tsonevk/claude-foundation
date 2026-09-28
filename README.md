@@ -9,7 +9,7 @@ This repository is the **source of truth** for `claude-foundation`.
 It is intentionally private.
 
 The plugin provides:
-- 168 skills;
+- 169 skills;
 - 10 focused agents;
 - 6 slash commands;
 - automatic/context-driven capability routing;
@@ -116,6 +116,7 @@ Keep **Publish to org** off.
 - Use one primary capability by default; add another only for a genuinely separate risk or validation need.
 - Clear scoped work should execute directly without unnecessary orchestration.
 - Workflow depth scales with ambiguity, risk, and blast radius.
+- Keep low-risk reversible work AI-first; switch to reasoning-first for high-consequence work by establishing invariants, causal/failure models, falsification, validation, and rollback before mutation.
 
 ## Safety
 
