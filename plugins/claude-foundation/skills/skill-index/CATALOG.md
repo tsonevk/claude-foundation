@@ -2,7 +2,7 @@
 
 GENERATED FILE — do not edit by hand. Regenerate with `python3 scripts/generate_skill_index.py --write`.
 
-168 skills. **R** = routing tier (Claude sees the description and may invoke it automatically). **C:AUTO** = catalog tier, CATALOG_AUTO: not resident (`disable-model-invocation: true`, so Claude Code itself will not natively auto-invoke it), but skill-bank-router/skill-index MAY load its SKILL.md and apply it as router-selected guidance for a matching prompt. **C:MANUAL** = catalog tier, MANUAL_ONLY: our router must NOT auto-apply it — tell the user the explicit action/invocation required instead (`tiers.manual_only` in skill-metadata.json).
+169 skills. **R** = routing tier (Claude sees the description and may invoke it automatically). **C:AUTO** = catalog tier, CATALOG_AUTO: not resident (`disable-model-invocation: true`, so Claude Code itself will not natively auto-invoke it), but skill-bank-router/skill-index MAY load its SKILL.md and apply it as router-selected guidance for a matching prompt. **C:MANUAL** = catalog tier, MANUAL_ONLY: our router must NOT auto-apply it — tell the user the explicit action/invocation required instead (`tiers.manual_only` in skill-metadata.json).
 
 To use a CATALOG_AUTO (`[C:AUTO]`) skill, do either of these:
 
@@ -94,6 +94,7 @@ For a MANUAL_ONLY (`[C:MANUAL]`) skill, do NOT read/apply its SKILL.md as an aut
 - **auditing-kubernetes-cluster-rbac** [C:AUTO] — Auditing Kubernetes cluster RBAC configurations to identify overly permissive roles, wildcard permissions, dangerous
 - **kubernetes-cluster-operations-review** [C:AUTO] — Diagnose Kubernetes runtime and rollout issues with read-only cluster evidence, targeted logs, and safe operational review.
 - **kubernetes-manifest-review** [C:AUTO] — Review Kubernetes manifests for safety, coherence, and deployment-readiness before apply.
+- **kubernetes-minikube-smoke-test** [C:AUTO] — Deploy and smoke-test a containerized workload on a local Minikube cluster, from image loading to rollout, connectivity checks, restart and NetworkPolicy tests, and cleanup, read-first with approval for every mutation.
 - **kubernetes-policy-and-access-review** [C:AUTO] — Review Kubernetes RBAC, service accounts, pod security, and admission policy for least privilege and safety.
 - **managed-kubernetes-operations-review** [C:AUTO] — Review OKE and EKS managed Kubernetes operations, upgrades, and provider integration with read-only evidence.
 
