@@ -1,35 +1,30 @@
 # Claude Foundation
 
-Private, version-controlled Claude plugin foundation for the user's Claude Code, VS Code, Claude Desktop, Cowork, and related agent workflows.
+Public distribution mirror for the version-controlled Claude plugin used by Claude Code, VS Code, Claude Desktop, Cowork, and related agent workflows.
 
 ## Repository role
 
-This repository is the **source of truth** for `claude-foundation`.
-
-It is intentionally private.
+This repository is a **public downstream distribution mirror**, not the source of truth. The canonical private repository is `tsonevk/claude`, where `claude-foundation/` is tracked. Only `.claude-plugin/`, `plugins/`, and `EXCLUDED.md` are synchronized; this mirror's README and validation scripts are maintained separately.
 
 The plugin provides:
-- 169 skills;
-- 10 focused agents;
-- 6 slash commands;
+- reusable skills, focused agents, and slash commands (see `plugins/claude-foundation/` for the current inventory);
 - automatic/context-driven capability routing;
 - DevOps, OCI, Linux, iMX, Kubernetes, Ansible, Terraform, CI/CD, security, agent-runtime and repository-governance workflows.
 
 ## Runtime model
 
 ```text
-private GitHub: tsonevk/claude-foundation
-                  |
-                  | source of truth
-                  |
-        +---------+------------------+
-        |                            |
-        v                            v
-local clone/runtime             packaged plugin
-~/.claude/claude-foundation     Claude Desktop / Cowork
-        |                            |
-        v                            v
-Claude Code / VS Code           personal "Your plugins"
+private canonical: tsonevk/claude (main)
+        |                                  |
+        v                                  v
+local ~/.claude/claude-foundation/   distribution sync
+        |                                  |
+        v                                  v
+Claude Code / VS Code         public tsonevk/claude-foundation
+                                           |
+                                           v
+                                Claude Desktop / Cowork
+                                 personal "Your plugins"
 ```
 
 The local Claude Code marketplace is **not** replaced by the Desktop/Cowork installation.
@@ -38,7 +33,7 @@ Do not remove the local `ktsonev-local` marketplace until a replacement runtime 
 
 ## Privacy / Team account boundary
 
-The repository and plugin are private personal tooling.
+This repository is public. Never commit private runtime state or secrets. Account-level plugin installation can remain personal.
 
 When uploading the plugin in a Team Claude account:
 - keep it under **Your plugins**;
@@ -62,7 +57,7 @@ The repository exposes a local marketplace at:
 .claude-plugin/marketplace.json
 ```
 
-Claude Code can keep using the local marketplace runtime while this GitHub repository remains the version-controlled source.
+Claude Code can keep using the local marketplace runtime while the private `tsonevk/claude` repository remains the version-controlled source.
 
 ## Claude Desktop / Cowork
 
@@ -142,15 +137,8 @@ This verifies the marketplace-to-plugin path, plugin identity, installed skill/a
 
 Deeper skill-routing and catalog checks remain part of the local Claude Code maintenance workflow until they are adapted for this standalone repository.
 
-## Migration status
+## Canonical and distribution boundaries
 
-The original embedded copy currently exists in `tsonevk/claude` for compatibility.
+The embedded `claude-foundation/` in private `tsonevk/claude` remains canonical for Claude Code / VS Code. This public repository distributes the approved plugin payload for Claude Desktop / Cowork and other consumers. The canonical repository's publish workflow and its local hooks are separate publication paths; see the canonical README for the current security trade-offs and review gates.
 
-Migration policy:
-1. populate and validate this standalone repository;
-2. point the local runtime at this repository/clone;
-3. validate Claude Code / VS Code;
-4. validate Desktop/Cowork packaged installation;
-5. only then remove or deprecate the embedded copy in `tsonevk/claude`.
-
-Do not perform step 5 prematurely.
+Do not treat this mirror as the implementation source or change local runtime provisioning solely because the mirror exists. Validate each runtime independently before changing its installation.
