@@ -36,6 +36,8 @@ A safe loop defines trigger, authoritative context, capability boundary, executi
 
 Start manual, read-heavy, and write-light. Before autonomous writes, define the real workspace/branch/worktree/container/runner boundary. Schedule or widen permissions only after useful manual runs and explicit approval. For tool-driven runtime work, apply `ai-agent-tool-safety-review`.
 
+When the loop can call tools, write autonomously, use MCP, or take external actions, apply `claude-foundation:ai-agent-tool-safety-review` to define capability, isolation, evidence, approval, and verification boundaries.
+
 ## Safety boundaries
 - No unbounded agent spawning, recursion, token use, or repository reading.
 - No production/cloud/DB/whole-instance mutation without explicit approval.

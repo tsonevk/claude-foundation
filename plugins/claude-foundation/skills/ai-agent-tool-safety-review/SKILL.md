@@ -147,6 +147,14 @@ Record only events the implementation can actually observe. Do not invent run ID
 
 Use `templates/run-record.md` only when durable run evidence is justified.
 
+### Replay and checkpoint boundary
+
+For stateful or recurring workflows, prefer existing runtime-native checkpoints and cursors. Specify a stable, non-sensitive operation ID and expected source version; reconcile effects before retrying. A checkpoint advances only after the intended effect is verified. Report completed, pending, and uncertain operations separately after partial failure. Never claim durable resume or exactly-once execution unless verified against the actual storage and external API semantics. If durable state is not available, classify replay as UNKNOWN and stop unapproved side effects.
+
+### Reliability measurement
+
+For a small representative golden set, report denominator-backed task success, first-pass success, recovery success, retries, duplicate writes, denied unsafe actions, verification coverage and elapsed/tool/token costs when available. Distinguish fixture/static checks from actual runtime outcomes. Missing telemetry is UNKNOWN, never a passing score. Measure baseline before adding gates.
+
 ### 6. Approval boundary
 
 Claude or a subagent must not self-approve:
@@ -206,6 +214,19 @@ For applicable reviews or designs, return:
 - residual risks
 - next safe action
 
+## Claude Code enforcement boundary
+Prompt and skill text are guidance, not deterministic enforcement.
+
+Where available, enforce boundaries with:
+- project/global Claude Code permissions
+- hooks
+- tool allow/deny surfaces
+- worktree or other real execution isolation
+- MCP/tool schemas and server-side authorization
+- target-system IAM/policy
+
+A live production host, tenancy, cluster, shared runtime, or production database is not a sandbox.
+
 ## Safety boundaries
 
 - Read-only first when authority is unclear.
@@ -213,6 +234,7 @@ For applicable reviews or designs, return:
 - No broad shell, cloud, database, browser, or admin access by default.
 - No self-approval of high-risk actions.
 - No production mutation without explicit confirmation.
+- No hidden external writes.
 - No secrets in prompts, logs, artifacts, or repositories.
 - No hidden external writes.
 - No claim of sandboxing without a real isolation boundary.

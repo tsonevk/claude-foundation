@@ -2,7 +2,7 @@
 
 GENERATED FILE — do not edit by hand. Regenerate with `python3 scripts/generate_skill_index.py --write`.
 
-169 skills. **R** = routing tier (Claude sees the description and may invoke it automatically). **C:AUTO** = catalog tier, CATALOG_AUTO: not resident (`disable-model-invocation: true`, so Claude Code itself will not natively auto-invoke it), but skill-bank-router/skill-index MAY load its SKILL.md and apply it as router-selected guidance for a matching prompt. **C:MANUAL** = catalog tier, MANUAL_ONLY: our router must NOT auto-apply it — tell the user the explicit action/invocation required instead (`tiers.manual_only` in skill-metadata.json).
+170 skills. **R** = routing tier (Claude sees the description and may invoke it automatically). **C:AUTO** = catalog tier, CATALOG_AUTO: not resident (`disable-model-invocation: true`, so Claude Code itself will not natively auto-invoke it), but skill-bank-router/skill-index MAY load its SKILL.md and apply it as router-selected guidance for a matching prompt. **C:MANUAL** = catalog tier, MANUAL_ONLY: our router must NOT auto-apply it — tell the user the explicit action/invocation required instead (`tiers.manual_only` in skill-metadata.json).
 
 To use a CATALOG_AUTO (`[C:AUTO]`) skill, do either of these:
 
@@ -200,6 +200,7 @@ For a MANUAL_ONLY (`[C:MANUAL]`) skill, do NOT read/apply its SKILL.md as an aut
 - **git-worktree-manager** [C:AUTO] — Use git worktrees for isolated parallel work without branch collisions or dirty-state confusion.
 - **jira-ai-investigation-brief** [C:AUTO] — Use this skill when converting Jira/Atlassian tasks into structured AI investigation briefs, DevOps analysis plans, colleague handoff instructions, and evidence collection checklists.
 - **lb-incident-analysis** [C:AUTO] — Analyze load balancer incidents using logs, headers, and edge behavior evidence.
+- **operator-docs** [R] — Write or simplify short, clear operator-facing installation guides, runbooks, Wiki/MediaWiki pages and README procedures. Use automatically for documentation creation and rewrites, not for documentation lookup, code simplification or audits.
 - **project-guidelines-template** [C:AUTO] — Use when a repository needs a project-specific onboarding or execution skill that captures architecture, file structure, validation paths, and operational guidance in one reusable template.
 - **repo-health** [C:AUTO] — Run a periodic, read-only, deterministic-first repository maintainability health check to find growth, churn, complexity hotspots, and development-speed risks without broad LLM scanning or automatic refactoring.
 - **repo-intake-scan** [C:AUTO] — Use when taking over or first inspecting a repository and you need a practical map of boundaries, source-of-truth files, risky areas, validation entrypoints, and reusable ideas.

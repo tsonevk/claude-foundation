@@ -35,6 +35,7 @@
       "oci-networking-diagnostics",
       "oci-operations-review",
       "oci-security-evidence-review",
+      "operator-docs",
       "prompt-governance",
       "prompt-quality",
       "repo-review",
