@@ -43,6 +43,12 @@ Reduce context, latency, and token waste without reducing correctness or safety.
 - Proposed skill changes for human review
 - Proposed global/project instruction changes for human review
 
+## Optional TE-1 session evidence
+- Only when the user requests observed tool/token behavior, use the repo-native `scripts/token_economy_audit.py` on a small, **explicitly selected** set of local Claude Code JSONL sessions. Resolve the script from the Claude configuration repo (`CLAUDE_CONFIG_DIR` or `~/.claude`), not the current project directory.
+- Example: `python3 ~/.claude/scripts/token_economy_audit.py --session-file "<selected-session>.jsonl" --format json` (adapt the Python executable and path for Windows).
+- The script prints bounded, sanitized aggregates only. Never paste, upload, or commit raw session files. Do not auto-discover all projects, infer loaded tool inventory from session calls, or turn low observed use into permission/tool removal.
+- Distinguish **observed tokens** from provider billing and **NOT_MEASURED** token savings. Follow up with a controlled VS Code baseline/candidate run before claiming any improvement.
+
 ## Safety boundaries
 - Read-only by default.
 - Do not disable or remove skills automatically.
