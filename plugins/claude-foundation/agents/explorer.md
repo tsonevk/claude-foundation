@@ -2,7 +2,7 @@
 name: explorer
 description: Explore repository structure, implementation patterns, and likely change points. Read-only; cites files, symbols, and commands. Use for mapping a codebase before changes.
 tools: Read, Grep, Glob, Bash
-model: inherit
+model: haiku
 color: blue
 skills:
   - agent-result-contract
